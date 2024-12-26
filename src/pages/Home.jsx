@@ -6,23 +6,17 @@ import { getCanvases } from '../api/canvas';
 
 function Home() {
   const [data, setData] = useState([]);
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState();
   const [isGridView, setIsGridView] = useState(true);
-  const filteredData = data.filter(item =>
-    item.title.toLowerCase().includes(searchText.toLowerCase()),
-  );
 
-  async function fetchData() {
-    // const data = await fetch('http://localhost:8000/canvases')
-    //   .then(res => res.json())
-    //   .catch(console.error);
-    const response = await getCanvases();
+  async function fetchData(params) {
+    const response = await getCanvases(params);
     setData(response.data);
   }
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData({ title_like: searchText });
+  }, [searchText]);
 
   const handleDeleteItem = id => {
     setData(data.filter(item => item.id !== id));
@@ -35,7 +29,7 @@ function Home() {
         <ViewToggle isGridView={isGridView} setIsGridView={setIsGridView} />
       </div>
       <CanvasList
-        filteredData={filteredData}
+        filteredData={data}
         searchText={searchText}
         isGridView={isGridView}
         onDeleteItem={handleDeleteItem}
