@@ -8,11 +8,14 @@ const colorOptions = [
   'bg-green-300',
 ];
 
-function Note({ id, onRemoveNote }) {
-  const randomIndex = Math.floor(Math.random() * colorOptions.length); // 0, 1, 2, 3 중 하나
-  const [color, setColor] = useState(colorOptions[randomIndex]);
+function Note({ id, content, color: initialColor, onRemoveNote }) {
+  const [color, setColor] = useState(() => {
+    if (initialColor) return initialColor;
+    const randomIndex = Math.floor(Math.random() * colorOptions.length); // 0, 1, 2, 3 중 하나
+    return colorOptions[randomIndex];
+  });
   const [isEditing, setIsEditing] = useState(false);
-  const [content, setContent] = useState();
+  // const [content, setContent] = useState();
   const textareaRef = useRef(null);
   useEffect(() => {
     if (textareaRef.current) {

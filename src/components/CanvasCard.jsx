@@ -3,13 +3,13 @@ import { FaPlus } from 'react-icons/fa';
 import { v4 as uuidv4 } from 'uuid';
 import Note from './Note';
 
-function CanvasCard({ title, isSubtitle = false }) {
-  const [notes, setNotes] = useState([]);
+function CanvasCard({ title, isSubtitle = false, notes = [] }) {
+  // const [notes, setNotes] = useState([]);
   const handleAddNote = () => {
-    setNotes([...notes, { id: uuidv4(), content: '' }]);
+    // setNotes([...notes, { id: uuidv4(), content: '' }]);
   };
   const handleRemoveNote = id => {
-    setNotes(notes.filter(note => note.id !== id));
+    // setNotes(notes.filter(note => note.id !== id));
   };
 
   return (
@@ -32,6 +32,7 @@ function CanvasCard({ title, isSubtitle = false }) {
             id={note.id}
             content={note.content}
             onRemoveNote={handleRemoveNote}
+            color={note.color}
           />
         ))}
       </div>
