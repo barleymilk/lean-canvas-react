@@ -31,9 +31,14 @@ export async function getCanvasById(id) {
   return data;
 }
 
+// json-server
 export async function updateTitle(id, title) {
   // post - 새로운 자원 생성
   // put - 기존 자원 전체 업데이트 또는 새 자원 생성
   // patch - 일부 수정
   await canvases.patch(`/${id}`, { title });
+}
+
+export async function updateCanvas(id, canvas) {
+  await canvases.put(`/${id}`, canvas);
 }
