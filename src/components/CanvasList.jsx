@@ -22,7 +22,7 @@ function CanvasList({ filteredData, searchText, isGridView, onDeleteItem }) {
           lastModified={item.lastModified}
           category={item.category}
           onDelete={e => {
-            e.preventDefault(); // 기본 동작 막는 메서드
+            e.preventDefault();
             onDeleteItem(item.id);
           }}
         />
