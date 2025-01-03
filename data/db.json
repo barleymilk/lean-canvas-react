@@ -32,11 +32,6 @@
       "problem": {
         "notes": [
           {
-            "id": "p1",
-            "content": "기존 스마트홈 시스템sdfd의 복잡성",
-            "color": "bg-blue-300"
-          },
-          {
             "id": "p2",
             "content": "높은 초기 설치 비용",
             "color": "bg-pink-300"
@@ -45,6 +40,11 @@
             "id": "p3",
             "content": "다양한 기기 간 호환성 문제",
             "color": "bg-blue-300"
+          },
+          {
+            "id": "e6590e65-3b22-4bc2-8f4f-2af71986a64f",
+            "content": "메롱메롱",
+            "color": "bg-green-300"
           }
         ]
       },
