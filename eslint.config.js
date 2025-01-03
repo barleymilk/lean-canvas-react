@@ -34,6 +34,8 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'react/self-closing-comp': 'warn',
+      'react/prop-types': 'off',
     },
   },
   eslintConfigPrettier,
